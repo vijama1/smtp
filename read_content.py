@@ -5,10 +5,11 @@ import requests
 from bs4 import BeautifulSoup
 import time
 #email_user = input('Email: ')
+email=input("Enter email:")
 email_pass = getpass.getpass()
 
 M = imaplib.IMAP4_SSL('imap.gmail.com', 993)
-M.login('amanvijay97@gmail.com', email_pass)
+M.login(email, email_pass)
 M.select('inbox')
 list=[]
 #typ, data = M.search(None, 'ALL')
@@ -31,9 +32,7 @@ for num in message_numbers[0].split()[::-1]:
     print("Receiver mail: "+str(receiver_mail))
     date_index=good_data.index("Date: ")
     sublist=good_data[date_index:]
-    new=sublist.index("//n")
-    print(new)
-    time.sleep(5)
+    #new=sublist.index("/n")
     print(sublist)
 
     try:
